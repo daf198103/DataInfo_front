@@ -1,0 +1,57 @@
+<br>
+<div [hidden]="!naoexiste" class="alert alert-success alert-dismissible fade show" role="alert">
+    <strong>Editado com Sucesso!!</strong>
+    <button type="button" class="close" data-dismiss="alert" (click)="fechar()" aria-label="Close">
+      <span aria-hidden="true">&times;</span>
+    </button>
+</div>
+
+<h1 [hidden]="submitted">Editar Usuário</h1>
+<div [hidden]="submitted" style="width: 400px;"  >
+    <form class="needs-validation" (ngSubmit)="onSubmit()" [formGroup]="usuario" >
+        <div class="form-group">
+            <label >Nome</label>
+            <input type="text" class="form-control" id="userName" formControlName="userName" required  name="userName" placeholder="{{this.usr.userName}}">
+        </div>
+
+        <div class="form-group">
+            <label >CPF</label>
+            <input type="text" class="form-control" id="cpf" formControlName="cpf" required  name="cpf" placeholder="{{this.usr.cpf}}">
+        </div>
+
+        <div class="form-group">
+            <label >Função</label>
+            <input type="text" class="form-control" id="function" required  formControlName="function" name="function" placeholder="{{this.usr.function}}">
+        </div>
+        <div class="form-group">
+            <label >Email</label>
+            <input type="text" class="form-control" id="email" required  formControlName="email" name="email" placeholder="{{this.usr.email}}">
+        </div>
+        <div class="form-group">
+            <label >Situação</label>
+            <input type="text" class="form-control" id="situation" required  formControlName="situation"name="situation" placeholder="{{this.usr.situation}}">
+        </div>
+        <!-- <div class="form-group">
+            <label >Perfil Acesso</label>
+            <input type="text" class="form-control" id="accessProfile" required formControlName="accessProfile" name="accessProfile" placeholder="{{this.usr.accessProfile}}">
+        </div> -->
+
+        <label for="nomeL">Perfil Acesso:</label>
+        <div class="form-group">
+            <select class="custom-select" id="situacao" formControlName="accessProfile">
+              <option selected="{{this.usr.accessProfile}}">Escolha Perfil</option>
+              <option value="1">1 - Todos</option>
+              <option value="2">2 - Gestor Nacional</option>
+              <option value="3">3 - Gestor Estadual</option>
+              <option value="4">4 - Gestor Municipal</option>
+            </select> 
+        </div>
+
+        <div class="form-group">
+            <label >Telefone</label>
+            <input type="text" class="form-control" id="phone" required formControlName="phone" name="phone" placeholder="{{this.usr.phone}}">
+        </div>
+
+        <button type="submit" class="btn btn-success">Salvar</button>
+    </form>
+</div>
